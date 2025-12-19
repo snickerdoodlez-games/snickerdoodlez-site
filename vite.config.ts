@@ -5,7 +5,7 @@ import react from '@vitejs/plugin-react';
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, '.', '');
   return {
-    base: '/', // 👈 THIS IS THE IMPORTANT LINE
+    base: '/', // correct for snickerdoodlez.online
 
     server: {
       port: 3000,
