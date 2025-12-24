@@ -1,1 +1,15 @@
-
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls",
+      "delegate_permission/common.get_login_creds"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.snickerdoodlez.wordpairing",
+      "sha256_cert_fingerprints": [
+        "AD:D0:02:C7:A6:B3:AB:EF:B9:2C:1D:F4:FE:D9:74:64:EC:85:87:97:71:B4:A2:C1:96:3A:92:49:F9:4F:BF:99"
+      ]
+    }
+  }
+]
