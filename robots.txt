@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /assets
+Disallow: /.well-known
+Disallow: /.github
+Sitemap: https://snickerdoodlez.online/sitemap.xml
