@@ -2,15 +2,6 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-CDLKBBTW1V"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-CDLKBBTW1V');
-</script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
     <meta name="theme-color" content="#000000" />
@@ -18,7 +9,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <title>Word Pairing Machine</title>
-    <link rel="manifest" href="/assets/manifest-CtW6oAS6-CtW6oAS6.json" />
+    <link rel="manifest" href="/assets/manifest-CtW6oAS6.json" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Bangers&family=Fredoka+One&family=Inter:wght@400;700&family=Limelight&family=Monoton&family=Oswald:wght@200;300;400;500;600;700&family=Pacifico&family=Patrick+Hand&family=Permanent+Marker&family=Press+Start+2P&family=Raleway:wght@200;300;400;500;700&family=Righteous&display=swap" rel="stylesheet">
@@ -76,7 +67,7 @@
               'large': '22px',
             },
             fontFamily: {
-              sans: ['Inter', 'system-ui', 'sans-serif'],
+              sans: ['Oswald', 'Inter', 'system-ui', 'sans-serif'],
               oswald: ['Oswald', 'sans-serif'],
               raleway: ['Raleway', 'sans-serif'],
               limelight: ['Limelight', 'cursive'],
@@ -114,6 +105,7 @@
               'brain-glow': 'brainGlow 3s ease-in-out infinite',
               'selected-pulse': 'selectedPulse 2s ease-in-out infinite',
               'solve-impact': 'solveImpact 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards',
+              'gradient-shift': 'gradient-shift 4s ease infinite',
             },
             keyframes: {
               pop: {
@@ -194,6 +186,11 @@
                 '0%': { transform: 'scale(1)', filter: 'brightness(4)' },
                 '40%': { transform: 'scale(1.15)', filter: 'brightness(2)' },
                 '100%': { transform: 'scale(1)', filter: 'brightness(1)' },
+              },
+              'gradient-shift': {
+                '0%': { backgroundPosition: '0% 50%' },
+                '50%': { backgroundPosition: '100% 50%' },
+                '100%': { backgroundPosition: '0% 50%' },
               }
             }
           }
@@ -201,6 +198,9 @@
       }
     </script>
     <style>
+      * {
+        font-family: 'Oswald', sans-serif !important;
+      }
       body {
         margin: 0;
         padding: 0;
@@ -211,19 +211,24 @@
         -webkit-user-select: none;
         -webkit-tap-highlight-color: transparent;
       }
-     
+      .no-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+      .no-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
       .active-press:active {
         transform: scale(0.95);
       }
+      .next-puzzle-overlay {
+        background: radial-gradient(circle at center, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.85) 100%);
+      }
     </style>
   <link rel="stylesheet" href="/index.css">
-  <script type="module" crossorigin src="/assets/index-DZYk55dN.js"></script>
+  <script type="module" crossorigin src="/assets/index-B1BpELOr.js"></script>
 </head>
   <body>
     <div id="root"></div>
-<a 
-               href="/privacy_policy/privacy_policy/privacy_policy.html" 
-               className="text-[10px] text-zinc-500 font-oswald uppercase tracking-widest hover:text-white transition-colors py-1"
-             >
 </body>
 </html>
