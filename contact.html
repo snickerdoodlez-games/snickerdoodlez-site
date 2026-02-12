@@ -1,1 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Snickerdoodlez</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Righteous&family=Press+Start+2P&family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --neon-blue: #00E5FF;
+            --neon-pink: #FF1FBF;
+            --neon-orange: #FF6A00;
+            --neon-green: #00FF66;
+            --neon-violet: #9B00FF;
+            --astro-gold: #FFD93D;
+            --background: #000000;
+            --astro-void: #111111;
+            --radius-medium: 14px;
+            --radius-large: 22px;
+        }
 
+        body {
+            background-color: var(--background);
+            background-image: 
+                radial-gradient(rgba(243, 232, 192, 0.1) 1px, transparent 1px),
+                linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), 
+                linear-gradient(90deg, rgba(255, 0, 0, 0.04), rgba(0, 255, 0, 0.01), rgba(0, 255, 0, 0.04));
+            background-size: 20px 20px, 100% 4px, 100% 100%;
+            color: #F7F7FF;
+            font-family: 'Raleway', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .contact-card {
+            background: var(--astro-void);
+            border: 2px solid var(--neon-blue);
+            border-radius: var(--radius-large);
+            padding: 2.5rem;
+            width: 100%;
+            max-width: 450px;
+            box-shadow: 0 0 30px rgba(0, 229, 255, 0.15);
+            position: relative;
+        }
+
+        h1 {
+            font-family: 'Righteous', cursive;
+            color: var(--neon-blue);
+            text-transform: uppercase;
+            text-align: center;
+            text-shadow: 0 0 10px var(--neon-blue);
+            margin-bottom: 2rem;
+        }
+
+        .form-group { margin-bottom: 1.2rem; }
+
+        label {
+            display: block;
+            font-family: 'Oswald', sans-serif;
+            color: var(--neon-green);
+            font-size: 0.8rem;
+            margin-bottom: 0.4rem;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            background: #000;
+            border: 1px solid var(--neon-violet);
+            border-radius: var(--radius-medium);
+            color: white;
+            box-sizing: border-box;
+        }
+
+        .direct-contact {
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px dashed var(--neon-orange);
+            text-align: center;
+        }
+
+        .email-link {
+            font-family: 'Oswald', sans-serif;
+            color: var(--astro-gold);
+            text-decoration: none;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            transition: 0.3s;
+        }
+
+        .email-link:hover {
+            color: var(--neon-orange);
+            text-shadow: 0 0 8px var(--neon-orange);
+        }
+
+        button {
+            width: 100%;
+            padding: 1rem;
+            background: transparent;
+            border: 2px solid var(--neon-pink);
+            border-radius: var(--radius-medium);
+            color: var(--neon-pink);
+            font-family: 'Press Start 2P', cursive;
+            font-size: 0.7rem;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: var(--neon-pink);
+            color: #000;
+            box-shadow: 0 0 15px var(--neon-pink);
+        }
+
+        .label-tag {
+            position: absolute;
+            top: -12px;
+            left: 20px;
+            background: var(--neon-orange);
+            color: #000;
+            font-family: 'Oswald', sans-serif;
+            padding: 2px 12px;
+            font-weight: bold;
+            font-size: 0.7rem;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="contact-card">
+        <div class="label-tag">COMMS ENCRYPTED</div>
+        <h1>Contact</h1>
+        
+        <form action="mailto:admin@snickerdoodlez.online" method="post" enctype="text/plain">
+            <div class="form-group">
+                <label>User Identity</label>
+                <input type="text" name="name" placeholder="Name..." required>
+            </div>
+
+            <div class="form-group">
+                <label>Return Path</label>
+                <input type="email" name="email" placeholder="Email..." required>
+            </div>
+
+            <div class="form-group">
+                <label>Data Packet</label>
+                <textarea name="message" rows="3" placeholder="Write your message..."></textarea>
+            </div>
+
+            <button type="submit">Initialize Link</button>
+        </form>
+
+        <div class="direct-contact">
+            <label>Global Admin Access</label>
+            <a href="mailto:admin@snickerdoodlez.online" class="email-link">admin@snickerdoodlez.online</a>
+        </div>
+    </div>
+
+</body>
+</html>
