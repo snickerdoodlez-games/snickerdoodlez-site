@@ -2,9 +2,7 @@
 <html lang="en">
   <head>
     <script src="https://www.google.com/recaptcha/enterprise.js?render=6Lch4GgsAAAAAEhgqpzvb6cD06476rInsqtOi-dG"></script>
-    
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4096368901415767" crossorigin="anonymous"></script>
-    
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZNTCZ54KVQ"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -68,16 +66,17 @@
         background-color: #000000;
         color: #F7F7FF;
         overscroll-behavior: none;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
       }
 
-      /* Hides the reCAPTCHA badge site-wide */
-      .grecaptcha-badge { 
-        visibility: hidden !important; 
-      }
+      #root { flex: 1; }
 
-      /* Footer Styling */
+      .grecaptcha-badge { visibility: hidden !important; }
+
       .site-footer {
-        padding: 2rem 1rem;
+        padding: 1rem; /* Shorter padding */
         text-align: center;
         border-top: 1px solid #222;
         background: #050505;
@@ -85,19 +84,21 @@
       .footer-link {
         color: #00E5FF;
         text-decoration: none;
-        font-weight: 500;
+        font-weight: 700; /* Bolder link */
         text-transform: uppercase;
         letter-spacing: 1px;
         transition: all 0.3s ease;
+        display: inline-block;
+        margin-top: 0.5rem;
       }
       .footer-link:hover {
         text-shadow: 0 0 10px #00E5FF;
-        opacity: 0.8;
+        transform: scale(1.05);
       }
       .compliance-text {
         opacity: 0.2;
-        font-size: 0.65rem;
-        margin-bottom: 1rem;
+        font-size: 0.6rem;
+        margin-top: 0.5rem;
         font-family: 'Raleway', sans-serif !important;
       }
     </style>
@@ -106,27 +107,8 @@
     <script type="module" crossorigin src="/assets/index-B1BpELOr.js"></script>
   </head>
   <body>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4096368901415767" crossorigin="anonymous"></script>
-    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4096368901415767" data-ad-slot="5127884696" data-ad-format="auto" data-full-width-responsive="true"></ins>
-    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
     <div id="root"></div>
 
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4096368901415767" crossorigin="anonymous"></script>
-    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4096368901415767" data-ad-slot="1902955552" data-ad-format="auto" data-full-width-responsive="true"></ins>
-    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
     <footer class="site-footer">
-      <p class="mb-2 opacity-50 text-xs">© 2026 Word Pairing Machine</p>
-      
-      <p class="compliance-text">
-        This site is protected by reCAPTCHA and the Google 
-        <a href="https://policies.google.com/privacy" class="underline">Privacy Policy</a> and 
-        <a href="https://policies.google.com/terms" class="underline">Terms of Service</a> apply.
-      </p>
-
-      <a href="/contact.html" class="footer-link">Contact Support</a>
-    </footer>
-
-  </body>
-</html>
+      <div class="flex flex-col items-center">
+        <p class="opacity-50 text-[10px]">© 2026 Word Pairing
