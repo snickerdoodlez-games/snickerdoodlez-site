@@ -7,15 +7,13 @@
     
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Raleway:wght@400;700&display=swap" rel="stylesheet">
     
-    <script src="https://www.google.com/recaptcha/api.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
     <script>
-      // 2. Callback function to handle the token and open email
+      // 2. Callback function to submit the form after reCAPTCHA verification
       function onSubmit(token) {
-        console.log("reCAPTCHA Token verified:", token);
-        const email = "admin@snickerdoodlez.online";
-        const subject = encodeURIComponent("Contact from Word Pairing Machine");
-        window.location.href = `mailto:${email}?subject=${subject}`;
+        // This sends the data directly to Formspree
+        document.getElementById("contact-form").submit();
       }
     </script>
 
@@ -52,9 +50,9 @@
             min-height: 100vh;
         }
 
-        /* 3. Hide the reCAPTCHA Badge */
+        /* 3. Hide the reCAPTCHA Badge per Google Compliance */
         .grecaptcha-badge { 
-            visibility: hidden; 
+            visibility: hidden !important; 
         }
 
         header {
@@ -130,7 +128,11 @@
             transition: border 0.3s;
         }
 
-        /* Styling the reCAPTCHA button */
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: var(--neon-blue);
+        }
+
         .g-recaptcha {
             width: 100%;
             padding: 1.2rem;
@@ -203,10 +205,10 @@
 
     <main>
         <div class="contact-card">
-            <div class="label-tag">SECURE CHANNEL</div>
+            <div class="label-tag">VERIFIED CHANNEL</div>
             <h1>Contact</h1>
             
-            <form id="contact-form">
+            <form id="contact-form" action="https://formspree.io/f/{your-id}" method="POST">
                 <div class="form-group">
                     <label>User Identity</label>
                     <input type="text" name="name" placeholder="Enter name..." required>
@@ -219,7 +221,7 @@
 
                 <div class="form-group">
                     <label>Data Packet</label>
-                    <textarea name="message" rows="4" placeholder="Write your message..."></textarea>
+                    <textarea name="message" rows="4" placeholder="Write your message..." required></textarea>
                 </div>
 
                 <button class="g-recaptcha" 
@@ -231,7 +233,7 @@
             </form>
 
             <div class="direct-contact">
-                <label style="font-size: 0.9rem; opacity: 0.8;">Admin Support</label>
+                <label style="font-size: 0.9rem; opacity: 0.8; display:block; color:var(--neon-orange);">FALLBACK SUPPORT</label>
                 <a href="mailto:admin@snickerdoodlez.online" class="email-link">admin@snickerdoodlez.online</a>
             </div>
         </div>
