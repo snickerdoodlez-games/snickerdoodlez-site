@@ -6,7 +6,6 @@
     <title>Contact | Snickerdoodlez</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Raleway:wght@400;700&display=swap" rel="stylesheet">
-    
     <script src="https://www.google.com/recaptcha/enterprise.js?render=6Lch4GgsAAAAAEhgqpzvb6cD06476rInsqtOi-dG"></script>
 
     <style>
@@ -23,6 +22,11 @@
             --radius-large: 22px;
         }
 
+        * {
+            box-sizing: border-box;
+            font-family: 'Oswald', sans-serif;
+        }
+
         body {
             background-color: var(--background);
             background-image: 
@@ -31,56 +35,83 @@
                 linear-gradient(90deg, rgba(255, 0, 0, 0.04), rgba(0, 255, 0, 0.01), rgba(0, 255, 0, 0.04));
             background-size: 20px 20px, 100% 4px, 100% 100%;
             color: #F7F7FF;
-            font-family: 'Raleway', sans-serif;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* --- Header Styling --- */
+        header {
+            padding: 1.5rem;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.8);
+            border-bottom: 1px solid #222;
+        }
+
+        .nav-link {
+            color: var(--neon-blue);
+            text-decoration: none;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: 0.3s;
+        }
+
+        .nav-link:hover {
+            text-shadow: 0 0 10px var(--neon-blue);
+        }
+
+        /* --- Main Content Area --- */
+        main {
+            flex: 1;
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
-            margin: 0;
+            padding: 2rem;
         }
 
         .contact-card {
             background: var(--astro-void);
             border: 2px solid var(--neon-blue);
             border-radius: var(--radius-large);
-            padding: 2.5rem;
+            padding: 3rem;
             width: 100%;
-            max-width: 450px;
+            max-width: 500px;
             box-shadow: 0 0 30px rgba(0, 229, 255, 0.15);
             position: relative;
         }
 
         h1 {
-            font-family: 'Oswald', sans-serif;
-            font-weight: 700;
+            font-size: 2.5rem; /* Bigger title */
             color: var(--neon-blue);
             text-transform: uppercase;
             text-align: center;
             text-shadow: 0 0 10px var(--neon-blue);
             margin-bottom: 2rem;
-            letter-spacing: 3px;
+            letter-spacing: 4px;
         }
 
-        .form-group { margin-bottom: 1.2rem; }
+        .form-group { margin-bottom: 1.5rem; }
 
         label {
             display: block;
-            font-family: 'Oswald', sans-serif;
             color: var(--neon-green);
-            font-size: 0.85rem;
-            margin-bottom: 0.4rem;
+            font-size: 1.1rem; /* Increased from 0.85 */
+            margin-bottom: 0.6rem;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
 
         input, textarea {
             width: 100%;
-            padding: 12px;
+            padding: 14px;
             background: #000;
             border: 1px solid var(--neon-violet);
             border-radius: var(--radius-medium);
             color: white;
             font-family: 'Raleway', sans-serif;
+            font-size: 1.1rem; /* Increased for readability */
             box-sizing: border-box;
             transition: border 0.3s;
         }
@@ -88,6 +119,27 @@
         input:focus {
             outline: none;
             border-color: var(--neon-blue);
+        }
+
+        button {
+            width: 100%;
+            padding: 1.2rem;
+            background: transparent;
+            border: 2px solid var(--neon-pink);
+            border-radius: var(--radius-medium);
+            color: var(--neon-pink);
+            font-weight: 700;
+            font-size: 1.2rem; /* Increased */
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: var(--neon-pink);
+            color: #000;
+            box-shadow: 0 0 20px var(--neon-pink);
         }
 
         .direct-contact {
@@ -98,33 +150,18 @@
         }
 
         .email-link {
-            font-family: 'Oswald', sans-serif;
             color: var(--astro-gold);
             text-decoration: none;
-            font-size: 1.1rem;
+            font-size: 1.3rem; /* Increased */
             letter-spacing: 1px;
         }
 
-        button {
-            width: 100%;
-            padding: 1rem;
-            background: transparent;
-            border: 2px solid var(--neon-pink);
-            border-radius: var(--radius-medium);
-            color: var(--neon-pink);
-            font-family: 'Oswald', sans-serif;
-            font-weight: 700;
-            font-size: 1rem;
-            cursor: pointer;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            transition: 0.3s;
-        }
-
-        button:hover {
-            background: var(--neon-pink);
-            color: #000;
-            box-shadow: 0 0 15px var(--neon-pink);
+        /* --- Footer Styling --- */
+        footer {
+            padding: 2rem;
+            text-align: center;
+            background: #050505;
+            border-top: 1px solid #222;
         }
 
         .label-tag {
@@ -133,57 +170,62 @@
             left: 20px;
             background: var(--neon-orange);
             color: #000;
-            font-family: 'Oswald', sans-serif;
-            padding: 2px 12px;
+            padding: 4px 14px;
             font-weight: bold;
-            font-size: 0.7rem;
+            font-size: 0.9rem; /* Increased */
             border-radius: 4px;
         }
     </style>
 </head>
 <body>
 
-    <div class="contact-card">
-        <div class="label-tag">SECURE CHANNEL</div>
-        <h1>Contact</h1>
-        
-        <form id="contactForm">
-            <div class="form-group">
-                <label>User Identity</label>
-                <input type="text" name="name" placeholder="Name..." required>
+    <header>
+        <a href="index.html" class="nav-link">← Return to Machine</a>
+    </header>
+
+    <main>
+        <div class="contact-card">
+            <div class="label-tag">SECURE CHANNEL</div>
+            <h1>Contact</h1>
+            
+            <form id="contactForm">
+                <div class="form-group">
+                    <label>User Identity</label>
+                    <input type="text" name="name" placeholder="Enter name..." required>
+                </div>
+
+                <div class="form-group">
+                    <label>Return Path</label>
+                    <input type="email" name="email" placeholder="Enter email..." required>
+                </div>
+
+                <div class="form-group">
+                    <label>Data Packet</label>
+                    <textarea name="message" rows="4" placeholder="Write your message..."></textarea>
+                </div>
+
+                <button type="button" onclick="onClick(event)">Initialize Link</button>
+            </form>
+
+            <div class="direct-contact">
+                <label style="font-size: 0.9rem; opacity: 0.8;">Admin Support</label>
+                <a href="mailto:admin@snickerdoodlez.online" class="email-link">admin@snickerdoodlez.online</a>
             </div>
-
-            <div class="form-group">
-                <label>Return Path</label>
-                <input type="email" name="email" placeholder="Email..." required>
-            </div>
-
-            <div class="form-group">
-                <label>Data Packet</label>
-                <textarea name="message" rows="3" placeholder="Write your message..."></textarea>
-            </div>
-
-            <button type="button" onclick="onClick(event)">Initialize Link</button>
-        </form>
-
-        <div class="direct-contact">
-            <label>Admin Support</label>
-            <a href="mailto:admin@snickerdoodlez.online" class="email-link">admin@snickerdoodlez.online</a>
         </div>
-    </div>
+    </main>
+
+    <footer>
+        <p style="opacity: 0.5; font-size: 0.9rem; margin-bottom: 0.5rem;">© 2026 Word Pairing Machine</p>
+        <a href="index.html" class="nav-link" style="font-size: 1rem;">Back to Home</a>
+    </footer>
 
     <script>
         function onClick(e) {
             e.preventDefault();
             grecaptcha.enterprise.ready(async () => {
                 const token = await grecaptcha.enterprise.execute('6Lch4GgsAAAAAEhgqpzvb6cD06476rInsqtOi-dG', {action: 'LOGIN'});
-                
-                // For now, this just logs the token. 
-                // You would typically send this token to your backend or Firebase
                 console.log("reCAPTCHA Token generated:", token);
-                
-                // Fallback to open email client after verification
-                window.location.href = "mailto:admin@snickerdoodlez.online?subject=Contact from Snickerdoodlez";
+                window.location.href = "mailto:admin@snickerdoodlez.online?subject=Contact from Word Pairing Machine";
             });
         }
     </script>
