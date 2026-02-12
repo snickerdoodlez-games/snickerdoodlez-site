@@ -4,7 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact | Snickerdoodlez</title>
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Righteous&family=Press+Start+2P&family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+    
+    <script src="https://www.google.com/recaptcha/enterprise.js?render=6Lch4GgsAAAAAEhgqpzvb6cD06476rInsqtOi-dG"></script>
+
     <style>
         :root {
             --neon-blue: #00E5FF;
@@ -47,12 +51,14 @@
         }
 
         h1 {
-            font-family: 'Righteous', cursive;
+            font-family: 'Oswald', sans-serif;
+            font-weight: 700;
             color: var(--neon-blue);
             text-transform: uppercase;
             text-align: center;
             text-shadow: 0 0 10px var(--neon-blue);
             margin-bottom: 2rem;
+            letter-spacing: 3px;
         }
 
         .form-group { margin-bottom: 1.2rem; }
@@ -61,8 +67,10 @@
             display: block;
             font-family: 'Oswald', sans-serif;
             color: var(--neon-green);
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             margin-bottom: 0.4rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         input, textarea {
@@ -72,7 +80,14 @@
             border: 1px solid var(--neon-violet);
             border-radius: var(--radius-medium);
             color: white;
+            font-family: 'Raleway', sans-serif;
             box-sizing: border-box;
+            transition: border 0.3s;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: var(--neon-blue);
         }
 
         .direct-contact {
@@ -88,12 +103,6 @@
             text-decoration: none;
             font-size: 1.1rem;
             letter-spacing: 1px;
-            transition: 0.3s;
-        }
-
-        .email-link:hover {
-            color: var(--neon-orange);
-            text-shadow: 0 0 8px var(--neon-orange);
         }
 
         button {
@@ -103,9 +112,12 @@
             border: 2px solid var(--neon-pink);
             border-radius: var(--radius-medium);
             color: var(--neon-pink);
-            font-family: 'Press Start 2P', cursive;
-            font-size: 0.7rem;
+            font-family: 'Oswald', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
             cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 2px;
             transition: 0.3s;
         }
 
@@ -132,10 +144,10 @@
 <body>
 
     <div class="contact-card">
-        <div class="label-tag">COMMS ENCRYPTED</div>
+        <div class="label-tag">SECURE CHANNEL</div>
         <h1>Contact</h1>
         
-        <form action="mailto:admin@snickerdoodlez.online" method="post" enctype="text/plain">
+        <form id="contactForm">
             <div class="form-group">
                 <label>User Identity</label>
                 <input type="text" name="name" placeholder="Name..." required>
@@ -151,14 +163,29 @@
                 <textarea name="message" rows="3" placeholder="Write your message..."></textarea>
             </div>
 
-            <button type="submit">Initialize Link</button>
+            <button type="button" onclick="onClick(event)">Initialize Link</button>
         </form>
 
         <div class="direct-contact">
-            <label>Global Admin Access</label>
+            <label>Admin Support</label>
             <a href="mailto:admin@snickerdoodlez.online" class="email-link">admin@snickerdoodlez.online</a>
         </div>
     </div>
 
+    <script>
+        function onClick(e) {
+            e.preventDefault();
+            grecaptcha.enterprise.ready(async () => {
+                const token = await grecaptcha.enterprise.execute('6Lch4GgsAAAAAEhgqpzvb6cD06476rInsqtOi-dG', {action: 'LOGIN'});
+                
+                // For now, this just logs the token. 
+                // You would typically send this token to your backend or Firebase
+                console.log("reCAPTCHA Token generated:", token);
+                
+                // Fallback to open email client after verification
+                window.location.href = "mailto:admin@snickerdoodlez.online?subject=Contact from Snickerdoodlez";
+            });
+        }
+    </script>
 </body>
 </html>
