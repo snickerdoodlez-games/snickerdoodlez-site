@@ -208,7 +208,9 @@
             <div class="label-tag">VERIFIED CHANNEL</div>
             <h1>Contact</h1>
             
-<form id="contact-form" action="https://formspree.io/f/xbdagyea" method="POST">
+" async defer></script>
+
+<form id="contact-form" action="https://formspree.io" method="POST">
     <div class="form-group">
         <label>User Identity</label>
         <input type="text" name="name" placeholder="Enter name..." required>
@@ -224,13 +226,28 @@
         <textarea name="message" rows="4" placeholder="Write your message..." required></textarea>
     </div>
 
+    <!-- 2. Changed to type="button" to prevent early submission -->
     <button class="g-recaptcha" 
+            type="button"
             data-sitekey="6LdQt2osAAAAAO0mDWzm5peKsnx0jrcYwid5uJv-" 
             data-callback='onSubmit' 
             data-action='submit'>
         Submit
     </button>
 </form>
+
+<script>
+  // 3. The Callback Function
+  function onSubmit(token) {
+    // The 'token' is provided by reCAPTCHA upon success
+    console.log("reCAPTCHA verified. Token:", token);
+    
+    // Manually trigger the form submission now that verification is complete
+    // This prevents the 'network-request-failed' error caused by the 'race' condition
+    document.getElementById("contact-form").submit();
+  }
+</script>
+
             <div class="direct-contact">
                 <label style="font-size: 0.9rem; opacity: 0.8; display:block; color:var(--neon-orange);">FALLBACK SUPPORT</label>
                 <a href="mailto:admin@snickerdoodlez.online" class="email-link">admin@snickerdoodlez.online</a>
