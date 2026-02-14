@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact | Snickerdoodlez</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com" rel="stylesheet">
     
-    <!-- Load reCAPTCHA API once -->
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <!-- reCAPTCHA API with full async defer attributes -->
+    <script src="https://www.google.com" async defer></script>
 
     <script>
       // Callback function to submit the form after reCAPTCHA verification
@@ -132,9 +132,9 @@
             border-color: var(--neon-blue);
         }
 
-        /* Style for the reCAPTCHA button */
         .submit-btn {
             width: 100%;
+            margin-top: 1.5rem;
             padding: 1.2rem;
             background: transparent;
             border: 2px solid var(--neon-pink);
@@ -208,6 +208,7 @@
             <div class="label-tag">VERIFIED CHANNEL</div>
             <h1>Contact</h1>
             
+            <!-- FORM ENDS HERE -->
             <form id="contact-form" action="https://formspree.io" method="POST">
                 <div class="form-group">
                     <label>User Identity</label>
@@ -223,15 +224,16 @@
                     <label>Data Packet</label>
                     <textarea name="message" rows="4" placeholder="Write your message..." required></textarea>
                 </div>
-
-                <!-- reCAPTCHA v3 Button -->
-                <button class="g-recaptcha submit-btn" 
-                        data-sitekey="6LdQt2osAAAAAO0mDWzm5peKsnx0jrcYwid5uJv-" 
-                        data-callback='onSubmit' 
-                        data-action='submit'>
-                    Submit
-                </button>
             </form>
+
+            <!-- SUBMIT BUTTON IS OUTSIDE -->
+            <button class="g-recaptcha submit-btn" 
+                    form="contact-form"
+                    data-sitekey="6LdQt2osAAAAAO0mDWzm5peKsnx0jrcYwid5uJv-" 
+                    data-callback='onSubmit' 
+                    data-action='submit'>
+                Submit
+            </button>
 
             <div class="direct-contact">
                 <label style="font-size: 0.9rem; opacity: 0.8; display:block; color:var(--neon-orange);">FALLBACK SUPPORT</label>
@@ -242,11 +244,10 @@
 
     <footer>
         <p style="opacity: 0.5; font-size: 0.9rem; margin-bottom: 0.5rem;">© 2026 Word Pairing Machine</p>
-        
         <p class="compliance-text">
             This site is protected by reCAPTCHA and the Google 
-            <a href="https://policies.google.com/privacy" style="color: inherit; text-decoration: underline;">Privacy Policy</a> and 
-            <a href="https://policies.google.com/terms" style="color: inherit; text-decoration: underline;">Terms of Service</a> apply.
+            <a href="https://policies.google.com" style="color: inherit; text-decoration: underline;">Privacy Policy</a> and 
+            <a href="https://policies.google.com" style="color: inherit; text-decoration: underline;">Terms of Service</a> apply.
         </p>
     </footer>
 
